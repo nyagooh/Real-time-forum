@@ -1,0 +1,11 @@
+# Log files
+
+*.log
+
+# Database files
+
+*.db
+
+uploads
+
+*.json
