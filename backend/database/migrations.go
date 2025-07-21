@@ -3,7 +3,7 @@ package database
 import (
 	"database/sql"
 
-	"forum/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
 )
 
 var DB *sql.DB

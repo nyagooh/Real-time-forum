@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"strings"
 
-	"forum/backend/models"
+	"github.com/nyagooh/Real-time-forum.git/backend/models"
 
 	_ "github.com/mattn/go-sqlite3"
 )

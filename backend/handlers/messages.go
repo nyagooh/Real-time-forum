@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"strconv"
 
-	"forum/backend/database"
-	"forum/backend/errLog"
-	"forum/backend/middleware"
-	ws "forum/backend/websockets"
+	"github.com/nyagooh/Real-time-forum.git/backend/database"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/middleware"
+	ws "github.com/nyagooh/Real-time-forum.git/backend/websockets"
 )
 
 // ServeWs handles websocket requests from clients

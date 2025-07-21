@@ -13,12 +13,12 @@ import (
 	"strings"
 	"time"
 
-	"forum/backend/database"
-	"forum/backend/errLog"
-	"forum/backend/middleware"
+	"github.com/nyagooh/Real-time-forum.git/backend/database"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/middleware"
 
-	"forum/backend/models"
-	"forum/backend/utils"
+	"github.com/nyagooh/Real-time-forum.git/backend/models"
+	"github.com/nyagooh/Real-time-forum.git/backend/utils"
 )
 
 func CreatePostHandler(w http.ResponseWriter, r *http.Request) {
@@ -89,7 +89,6 @@ func CreatePostHandler(w http.ResponseWriter, r *http.Request) {
 
 		if err == nil && header != nil {
 			defer file.Close()
-
 
 			if header.Size > 10<<20 {
 				log.Printf("File too large: %d bytes", header.Size)
@@ -194,11 +193,11 @@ func CreatePostHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		sendSuccessResponse(w, http.StatusOK, map[string]any{
-			"success": true,
-			"title":   post.Title,
-			"content": post.Content,
+			"success":  true,
+			"title":    post.Title,
+			"content":  post.Content,
 			"imageURL": post.ImageURL,
-			"id":      postID,
+			"id":       postID,
 		})
 
 	default:
@@ -209,34 +208,34 @@ func CreatePostHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func parseAndValidatePostRequest(r *http.Request) (*models.Post, error) {
-    // Parse the multipart form
-    err := r.ParseMultipartForm(10 << 20) // 10 MB max file size
-    if err != nil {
-        return nil, fmt.Errorf("failed to parse multipart form: %v", err)
-    }
+	// Parse the multipart form
+	err := r.ParseMultipartForm(10 << 20) // 10 MB max file size
+	if err != nil {
+		return nil, fmt.Errorf("failed to parse multipart form: %v", err)
+	}
 
-    // Extract form values
-    title := r.FormValue("title")
-    content := r.FormValue("content")
-    categoriesJSON := r.FormValue("categories")
+	// Extract form values
+	title := r.FormValue("title")
+	content := r.FormValue("content")
+	categoriesJSON := r.FormValue("categories")
 
-    // Parse categories from JSON string
-    var categories []string
-    if categoriesJSON != "" {
-        err := json.Unmarshal([]byte(categoriesJSON), &categories)
-        if err != nil {
-            return nil, fmt.Errorf("failed to parse categories: %v", err)
-        }
-    }
+	// Parse categories from JSON string
+	var categories []string
+	if categoriesJSON != "" {
+		err := json.Unmarshal([]byte(categoriesJSON), &categories)
+		if err != nil {
+			return nil, fmt.Errorf("failed to parse categories: %v", err)
+		}
+	}
 
-    // Create a new Post object
-    post := &models.Post{
-        Title:    title,
-        Content:  content,
-        Category: categories,
-    }
+	// Create a new Post object
+	post := &models.Post{
+		Title:    title,
+		Content:  content,
+		Category: categories,
+	}
 
-    return post, nil
+	return post, nil
 }
 
 // SanitizeInput cleans and validates user input

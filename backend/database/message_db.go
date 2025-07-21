@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 
-	"forum/backend/errLog"
-	m "forum/backend/models"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	m "github.com/nyagooh/Real-time-forum.git/backend/models"
 )
 
 func SaveMessage(msg *m.Message) error {

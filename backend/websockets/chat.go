@@ -6,9 +6,9 @@ import (
 	"sync"
 	"time"
 
-	"forum/backend/database"
-	"forum/backend/errLog"
-	"forum/backend/models"
+	"github.com/nyagooh/Real-time-forum.git/backend/database"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/models"
 
 	"github.com/gorilla/websocket"
 )
@@ -91,16 +91,16 @@ func (h *Hub) SendMessage(username string, message []byte) {
 
 func (h *Hub) ReceiveMessage(message []byte, sender *Client) error {
 	var err error
-	
+
 	// First, try to parse as a generic message to determine the type
 	var genericMsg struct {
 		Type string `json:"type"`
 	}
-	
+
 	if err := json.Unmarshal(message, &genericMsg); err != nil {
 		return fmt.Errorf("error unmarshaling message: %v", err)
 	}
-	
+
 	// Handle different message types
 	switch genericMsg.Type {
 	case "message":
@@ -137,7 +137,7 @@ func (h *Hub) ReceiveMessage(message []byte, sender *Client) error {
 
 		// Send message only to receiver
 		h.SendMessage(msg.Receiver, data)
-		
+
 	case "typing":
 		// Handle typing status updates - no need to save to database
 		var typingMsg struct {
@@ -146,20 +146,20 @@ func (h *Hub) ReceiveMessage(message []byte, sender *Client) error {
 			Receiver string `json:"receiver"`
 			IsTyping bool   `json:"isTyping"`
 		}
-		
+
 		if err := json.Unmarshal(message, &typingMsg); err != nil {
 			return fmt.Errorf("error unmarshaling typing message: %v", err)
 		}
-		
+
 		// Override sender with actual username from websocket client
 		typingMsg.Sender = sender.Username
-		
+
 		// Marshal the typing message with the corrected sender
 		data, err := json.Marshal(typingMsg)
 		if err != nil {
 			return fmt.Errorf("error marshaling typing message: %v", err)
 		}
-		
+
 		// Send typing status only to the receiver
 		h.SendMessage(typingMsg.Receiver, data)
 	}

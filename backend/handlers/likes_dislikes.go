@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"forum/backend/database"
-	"forum/backend/errLog"
-	"forum/backend/middleware"
+	"github.com/nyagooh/Real-time-forum.git/backend/database"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/middleware"
 )
 
 // LikePostHandler handles liking a post.

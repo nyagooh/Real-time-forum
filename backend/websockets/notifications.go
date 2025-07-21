@@ -8,9 +8,9 @@ import (
 	"sync"
 	"time"
 
-	"forum/backend/database"
-	"forum/backend/errLog"
-	"forum/backend/middleware"
+	"github.com/nyagooh/Real-time-forum.git/backend/database"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/middleware"
 
 	"github.com/gorilla/websocket"
 )
@@ -303,7 +303,7 @@ func GetOnlineUsers(db *sql.DB) http.HandlerFunc {
 			errLog.Error.Println("Error fetching users:", err)
 			return
 		}
-		
+
 		users = append(users, userStruct)
 		broadcastUpdate(users)
 		errLog.Info.Println(users)

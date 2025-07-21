@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"time"
 
-	"forum/backend/database"
-	"forum/backend/errLog"
-	"forum/backend/routes"
+	"github.com/nyagooh/Real-time-forum.git/backend/database"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/routes"
 )
 
 func main() {
