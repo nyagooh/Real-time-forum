@@ -1,41 +1,69 @@
 :root {
-  /* Dark theme colors - refined color palette */
-  --primary-color: rgb(165, 153, 233);
-  --hover-color: rgba(165, 153, 233, 0.3);
-  --secondary-color: #ff4081;
-  --background-color: #1e1e3f;
-  --content-bg: #2d2b55;
-  --text-color: #ffffff;
-  --muted-text: #a599e9;
-  --accent-color: #fad000;
-  --lavender-bg: #28284e;
-  --error-color: #ff4081;
-  --success-color: #3ad900;
-  --shadow-color: rgba(0, 0, 0, 0.3);
-  --hover-shadow-color: rgba(0, 0, 0, 0.8);
-  --hover-color: #b4a6ff;
-  --border-color: #4d4d8f;
-  --input-bg: #1e1e3f;
+  /* 🌙 Dark Mode Orange Palette */
+  --background-color: #1C1C1C;
+  --primary-color: #F36D21; /* Vibrant Orange */
+  --highlight-color: #F36D21; /* Titles, CTA */
+  --accent-color: #FDC144; /* Warm Yellow */
+  --card-bg: #FBE8D4; /* Light Beige for cards/highlights */
+  --text-color: #FFFFFF;
+  --muted-text: #555555;
+  --shadow-color: #CC4F1A; /* Orange Shadow */
+  --border-color: #CC4F1A;
+  --content-bg: #232323;
+  --lavender-bg: #232323;
+  --input-bg: #232323;
 }
 
 :root[data-theme="light"] {
-  /* Light theme colors - refined color palette */
-  --primary-color: rgb(108, 99, 255);
-  --hover-color: rgba(108, 99, 255, 0.3);
-  --secondary-color: #ff4081;
-  --background-color: #f5f5f5;
-  --content-bg: #ffffff;
-  --text-color: #333333;
-  --muted-text: #666666;
-  --accent-color: #4a4a4a;
-  --lavender-bg: #f0f0ff;
-  --error-color: #ff4081;
-  --success-color: #3ad900;
-  --shadow-color: rgba(0, 0, 0, 0.1);
-  --hover-shadow-color: rgba(0, 0, 0, 0.8);
-  --hover-color: #5a52cc;
-  --border-color: #e0e0e0;
-  --input-bg: #ffffff;
+  --background-color: #FFFDF9;      /* Slightly off-white for less glare */
+  --primary-color: #F36D21;         /* Vibrant Orange for CTAs */
+  --highlight-color: #E8531F;       /* Deep Orange for hover/active */
+  --accent-color: #FDC144;          /* Warm Yellow for tags/buttons */
+  --card-bg: #FFFFFF;               /* Pure white for cards */
+  --text-color: #1C1C1C;            /* Main text */
+  --muted-text: #A6A6A6;            /* Subtext */
+  --border-color: #FDC144;          /* Soft yellow border */
+  --shadow-color: rgba(204, 79, 26, 0.07); /* Very subtle orange shadow */
+  --input-bg: #FFFFFF;
+  --lavender-bg: #FFF6E9;           /* Very light beige for soft sections */
+}
+
+/* Card/container style for both modes */
+.card, .auth-container, .post, .main-header, .sidebar, .side-nav {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+/* Button style for both modes */
+button {
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  box-shadow: 0 1.5px 4px var(--shadow-color);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+button:hover, button:focus {
+  background: var(--highlight-color);
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+/* Accent for links and tags */
+a, .tag, .category-tag {
+  color: var(--primary-color);
+}
+a:hover, .tag:hover, .category-tag:hover {
+  color: var(--highlight-color);
+}
+
+/* Muted text and typing indicator */
+.muted-text, .typing-indicator {
+  color: var(--muted-text) !important;
+}
+
+/* Section backgrounds */
+.section-bg, .lavender-bg {
+  background: var(--lavender-bg) !important;
 }
 
 * {
@@ -242,14 +270,13 @@ body {
   max-width: 800px;
   width: 53vw;
 }
-
 .typing-indicator {
   padding: 8px 15px;
-  color: #666;
+  color: var(--muted-text);
   font-size: 0.85rem;
   font-style: italic;
-  background-color: #f8f8f8;
-  border-top: 1px solid #eee;
+  background-color: var(--lavender-bg);
+  border-top: 1px solid var(--border-color);
   transition: all 0.3s ease;
   opacity: 1;
   height: auto;
@@ -572,8 +599,8 @@ body {
 /* Notification */
 
 .message-notification {
-  background-color: #ff3b30;
-  color: white;
+  background-color: var(--highlight-color);
+  color: var(--text-color);
   font-size: 11px;
   min-width: 18px;
   height: 18px;
@@ -582,7 +609,7 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px var(--shadow-color);
   margin-left: 6px;
 }
 
@@ -765,6 +792,7 @@ button {
   transition: all 0.3s ease;
   font-weight: 600;
   font-size: 0.95rem;
+  box-shadow: 0 2px 6px var(--shadow-color);
 }
 
 button:hover {
