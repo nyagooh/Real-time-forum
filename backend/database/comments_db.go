@@ -3,7 +3,7 @@ package database
 import (
 	"time"
 
-	"forum/backend/models"
+	"github.com/nyagooh/Real-time-forum.git/backend/models"
 )
 
 func AddComment(postID, userID int, post *models.Post) error {
