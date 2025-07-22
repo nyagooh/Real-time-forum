@@ -15,15 +15,16 @@
 }
 
 :root[data-theme="light"] {
-  --background-color: #FFFDF9;      /* Slightly off-white for less glare */
+  --background-color: #FFFFFF;      /* Pure white for light mode */
   --primary-color: #F36D21;         /* Vibrant Orange for CTAs */
   --highlight-color: #E8531F;       /* Deep Orange for hover/active */
   --accent-color: #FDC144;          /* Warm Yellow for tags/buttons */
   --card-bg: #FFFFFF;               /* Pure white for cards */
   --text-color: #1C1C1C;            /* Main text */
   --muted-text: #A6A6A6;            /* Subtext */
-  --border-color: #FDC144;          /* Soft yellow border */
-  --shadow-color: rgba(204, 79, 26, 0.07); /* Very subtle orange shadow */
+  --border-color: #E6E6E6;          /* Soft yellow border */
+  --shadow-color: rgba(0,0,0,0.06); 
+  --content-bg: #fdfbfb;/* Very subtle orange shadow */
   --input-bg: #FFFFFF;
   --lavender-bg: #FFF6E9;           /* Very light beige for soft sections */
 }
@@ -801,11 +802,12 @@ button:hover {
 }
 
 button.active {
-  background-color: var(--text-color);
+  background-color: var(--primary-color);
 }
 
 #logoutBtn {
-  background-color: var(--error-color);
+  background-color: var(--primary-color);
+  color: var(--text-color);
 }
 
 #logoutBtn:hover {
