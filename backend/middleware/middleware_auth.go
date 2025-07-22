@@ -6,8 +6,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"forum/backend/database"
-	"forum/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/database"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
 )
 
 type contextKey string

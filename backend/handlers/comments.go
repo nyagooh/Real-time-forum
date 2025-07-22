@@ -7,10 +7,10 @@ import (
 	"strconv"
 	"time"
 
-	"forum/backend/database"
-	"forum/backend/errLog"
-	"forum/backend/middleware"
-	"forum/backend/models"
+	"github.com/nyagooh/Real-time-forum.git/backend/database"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/middleware"
+	"github.com/nyagooh/Real-time-forum.git/backend/models"
 )
 
 func AddCommentHandler(w http.ResponseWriter, r *http.Request) {
@@ -37,7 +37,6 @@ func AddCommentHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-
 	cleanedText := SanitizeInput(commentRequest.Text)
 
 	userID := r.Context().Value(middleware.UserIDKey).(int)
@@ -63,7 +62,7 @@ func AddCommentHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	sendSuccessResponse(w, http.StatusOK, map[string]any{
-		"success":  true,
+		"success": true,
 		"comment": post.Comments[0],
 	})
 }

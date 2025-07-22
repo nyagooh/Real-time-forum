@@ -3,8 +3,9 @@ package database
 import (
 	"database/sql"
 	"fmt"
-	"forum/backend/errLog"
-	"forum/backend/models"
+
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/models"
 )
 
 func InsertUser(user models.User) error {

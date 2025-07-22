@@ -9,11 +9,11 @@ import (
 	"path/filepath"
 	"time"
 
-	"forum/backend/database"
-	"forum/backend/errLog"
-	"forum/backend/middleware"
-	"forum/backend/models"
-	"forum/backend/utils"
+	"github.com/nyagooh/Real-time-forum.git/backend/database"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/middleware"
+	"github.com/nyagooh/Real-time-forum.git/backend/models"
+	"github.com/nyagooh/Real-time-forum.git/backend/utils"
 
 	"golang.org/x/crypto/bcrypt"
 )
@@ -161,7 +161,7 @@ func ValidateSession(db *sql.DB) http.HandlerFunc {
 			w.WriteHeader(http.StatusInternalServerError)
 			json.NewEncoder(w).Encode(map[string]any{
 				"isLoggedIn": false,
-				"success": false,
+				"success":    false,
 			})
 			return
 		}

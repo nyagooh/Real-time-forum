@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 	"strings"
 
-	"forum/backend/handlers"
-	"forum/backend/middleware"
-	ws "forum/backend/websockets"
+	"github.com/nyagooh/Real-time-forum.git/backend/handlers"
+	"github.com/nyagooh/Real-time-forum.git/backend/middleware"
+	ws "github.com/nyagooh/Real-time-forum.git/backend/websockets"
 )
 
 func Routes(db *sql.DB) http.Handler {

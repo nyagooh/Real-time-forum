@@ -3,7 +3,7 @@ package utils
 import (
 	"testing"
 
-	"forum/backend/utils"
+	"github.com/nyagooh/Real-time-forum.git/backend/utils"
 )
 
 func TestStrToInt(t *testing.T) {

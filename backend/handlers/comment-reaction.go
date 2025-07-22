@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"forum/backend/database"
-	"forum/backend/errLog"
-	"forum/backend/middleware"
+	"github.com/nyagooh/Real-time-forum.git/backend/database"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/middleware"
 )
 
 // LikeCommentHandler handles liking a comment
@@ -31,7 +31,7 @@ func LikeCommentHandler(w http.ResponseWriter, r *http.Request) {
 
 	// Return updated reaction counts
 	likes, dislikes, _ := database.GetCommentReactionCounts(commentID)
-	
+
 	sendSuccessResponse(w, http.StatusOK, map[string]any{
 		"success":  true,
 		"likes":    likes,

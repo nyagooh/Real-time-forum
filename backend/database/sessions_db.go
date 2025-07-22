@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
-	"forum/backend/errLog"
-	"forum/backend/models"
+	"github.com/nyagooh/Real-time-forum.git/backend/errLog"
+	"github.com/nyagooh/Real-time-forum.git/backend/models"
 )
 
 func InsertSession(id int, session string, expiresAt time.Time) error {
@@ -94,7 +94,7 @@ func GetUserFromSession(db *sql.DB, r *http.Request) (*models.UserIdentity, erro
 	SELECT user_id
 	FROM sessions
 	WHERE session_token = ? AND expires_at > ?`
-	
+
 	var userID int
 	err = db.QueryRow(query, sessionToken, time.Now()).Scan(&userID)
 	if err != nil {
